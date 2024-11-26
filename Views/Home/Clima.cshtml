@@ -1,0 +1,11 @@
+﻿<h1>Bienvenido a la Página de Clima</h1>
+
+@model MashupProgresivo.Models.WeatherModel
+
+<div class="container">
+    <h1>Clima en Puebla</h1>
+    <img src="@Model.Icon" alt="Icono del clima" />
+    <p><strong>Descripción:</strong> @Model.Description</p>
+    <p><strong>Temperatura:</strong> @Model.Temperature °C</p>
+    <p><strong>Humedad:</strong> @Model.Humidity%</p>
+</div>

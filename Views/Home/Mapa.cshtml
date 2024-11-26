@@ -1,0 +1,31 @@
+﻿<h1>Bienvenido a la Página del Mapa</h1>
+@{
+    ViewData["Title"] = "Mapa";
+    var latitude = ViewData["Latitude"];
+    var longitude = ViewData["Longitude"];
+}
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+<div class="container">
+    <h1>Mapa de Ubicación</h1>
+    <div id="map" style="height: 500px; width: 100%;"></div>
+</div>
+
+<!-- Incluir Leaflet.js -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+    // Inicializar el mapa
+    var map = L.map('map').setView([@latitude, @longitude], 12); // Coordenadas de Puebla
+
+    // Cargar el mapa desde OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Colocar un marcador en el mapa
+    L.marker([@latitude, @longitude]).addTo(map)
+        .bindPopup("<b>Ubicación de Puebla</b>")
+        .openPopup();
+</script>

@@ -1,0 +1,43 @@
+﻿<h1>Bienvenido a la Página de divisas</h1>
+@{
+    ViewData["Title"] = "Conversor de Divisas";
+}
+
+<div class="container">
+    <h1>Conversor de Divisas</h1>
+
+    <form method="post">
+        <div class="form-group">
+            <label for="baseCurrency">Moneda Base</label>
+            <select id="baseCurrency" name="baseCurrency" class="form-control">
+                <option value="USD">USD</option>
+                <option value="MXN">MXN</option>
+                <option value="EUR">EUR</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="targetCurrency">Moneda a Convertir</label>
+            <select id="targetCurrency" name="targetCurrency" class="form-control">
+                <option value="USD">USD</option>
+                <option value="MXN">MXN</option>
+                <option value="EUR">EUR</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="amount">Cantidad</label>
+            <input type="number" id="amount" name="amount" class="form-control" placeholder="Ingresa la cantidad" required />
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Convertir</button>
+    </form>
+
+    @if (ViewData["ConvertedAmount"] != null)
+    {
+            <div class="mt-4">
+                <h2>Resultado:</h2>
+                <p>@ViewData["Amount"] @ViewData["BaseCurrency"] = @ViewData["ConvertedAmount"] @ViewData["TargetCurrency"]</p>
+            </div>
+    }
+</div>
